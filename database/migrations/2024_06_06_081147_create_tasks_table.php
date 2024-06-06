@@ -17,12 +17,14 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('role');
             $table->text('description');
-            $table->string('instagram_link')->nullable();
+            $table->text('address');
+            $table->string('linkedin_link')->nullable();
             $table->timestamp('visit_at')->nullable(); // Define custom timestamps separately
             $table->timestamp('post_at')->nullable(); // Define custom timestamps separately
             $table->enum('payment_status', [PaymentStatus::Unpaid->value, PaymentStatus::Paid->value])->default(PaymentStatus::Unpaid->value);
-            $table->enum('type', [TaskType::ProductReview->value, TaskType::VisitStore->value])->default(TaskType::VisitStore->value);
+            $table->enum('type', [TaskType::DepartmentSatu->value, TaskType::DepartmentDua->value, TaskType::DepartmentTiga->value, TaskType::DepartmentEmpat->value]);
             $table->enum('status', [TaskStatus::Todo->value, TaskStatus::OnProgress->value, TaskStatus::Done->value])->default(TaskStatus::Todo->value);
             $table->timestamps(); // This will automatically add created_at and updated_at columns
         });

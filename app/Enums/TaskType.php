@@ -4,6 +4,8 @@ namespace App\Enums;
 
 enum TaskType: string 
 {
-    case VisitStore = 'Visit';
-    case ProductReview = 'Review Produk';
+    case DepartmentSatu = 'Manager';
+    case DepartmentDua = 'Staff IT';
+    case DepartmentTiga = 'Staff Design';
+    case DepartmentEmpat = 'Staff Marketing';
 }
