@@ -4,18 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task; // Menggunakan model Task
+use Illuminate\Support\Carbon;
+
 
 class frontendController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Ambil semua data tasks dari database
-        $tasks = Task::all();
-
-        // Kirim data tasks ke view 'frontend.index'
-        return view('frontend.index', ['tasks' => $tasks]);
+        $date = $request->input('date', now()->toDateString()); // Mengambil tanggal dari request, defaultnya adalah hari ini
+        $tasks = Task::whereDate('created_at', $date)->get(); // Mengambil data tasks berdasarkan tanggal
+    
+        return view('frontend.index', [
+            'tasks' => $tasks,
+            'selectedDate' => $date // Meneruskan tanggal yang dipilih ke view
+        ]);
     }
-
+    
     public function store(Request $request)
     {
         // Validasi input data jika diperlukan

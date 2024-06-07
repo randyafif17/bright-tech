@@ -39,25 +39,37 @@
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2>About this page</h2>
-                        <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
+                        <h2>About Euginius Inc.</h2>
+                        <p class="lead">Euginius Inc. is a leading provider of innovative solutions in the field of technology and design. Our mission is to empower businesses and individuals with cutting-edge tools and resources to achieve their goals.</p>
+                        <h3>Our Features</h3>
                         <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
+                            <li>Clickable navigation links that smoothly scroll to different sections of the page.</li>
+                            <li>Responsive design for seamless browsing experience across different devices.</li>
+                            <li>Bootstrap's scrollspy feature highlights the active section in the navigation bar as you scroll.</li>
+                            <li>Minimal custom CSS allows for easy customization to suit your unique design preferences.</li>
                         </ul>
+                        <h3>Our Vision</h3>
+                        <p>We envision a future where technology serves as a catalyst for positive change, driving innovation, efficiency, and growth in every sector.</p>
                     </div>
                 </div>
             </div>
         </section>
+        
         <!-- Services section-->
         <section class="bg-light" id="services">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2>Services we offer</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+                        <h2>Our Services</h2>
+                        <p class="lead">At Euginius Inc., we offer a wide range of services to meet your business needs. Our dedicated team of professionals is committed to delivering exceptional results and helping you achieve your goals.</p>
+                        <h3>Web Development</h3>
+                        <p>We specialize in creating responsive and user-friendly websites that showcase your brand and drive engagement.</p>
+                        <h3>Graphic Design</h3>
+                        <p>Our talented designers bring your ideas to life with stunning visuals and creative solutions that leave a lasting impression.</p>
+                        <h3>Digital Marketing</h3>
+                        <p>From social media management to search engine optimization, we help you build and execute effective digital marketing strategies to reach your target audience.</p>
+                        <h3>Consulting Services</h3>
+                        <p>Our experienced consultants provide expert advice and guidance to help you make informed decisions and optimize your business processes.</p>
                     </div>
                 </div>
             </div>
@@ -65,8 +77,12 @@
 
         <section id="data">
             <div class="container">
-                <h1 class="my-4">Task Cards</h1>
-                <div class="row">
+                <h1 class="my-4">Attendance List</h1>
+                    <form class="d-flex" method="GET" action="{{ route('frontend') }}">
+                        <input class="form-control me-2" type="date" name="date" value="{{ $selectedDate }}">
+                        <button class="btn btn-primary" type="submit">Tampilkan</button>
+                    </form>                  
+                <div class="row mt-3">
                     @foreach ($tasks as $index => $task)
                         @if ($index % 2 == 0)
                             </div><div class="row">
@@ -86,6 +102,29 @@
                 </div>
             </div>
         </section>
+
+        {{-- <section id="databoong">
+            <div class="container">
+                <h1 class="my-4">Task Cards</h1>
+                <form method="GET" action="{{ route('frontend') }}">
+                    <input type="date" name="date" value="{{ $selectedDate }}">
+                    <button type="submit">Tampilkan</button>
+                </form>
+                
+                <!-- Tampilan data tasks -->
+                @foreach ($tasks as $task)
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>{{ $task->name }}</h3>
+                            <p>{{ $task->role }}</p>
+                            <p>{{ $task->type }}</p>
+                            <p>Masuk: {{ $task->created_at }}</p>
+                            <p>Pulang: {{ $task->post_at }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </section> --}}
 
         <section>
             <div class="container">
