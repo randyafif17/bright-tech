@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\frontendController;
 
-Route::get('/', [frontendController::class, "index"]);
+Route::get('/', [frontendController::class, 'index'])->name('frontend');
+Route::post('/tasks', [frontendController::class, 'store'])->name('tasks.store');
 
 Route::middleware([
     'auth:sanctum',
@@ -16,5 +17,4 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/admin/dashboard', 'AdminController@dashboard');
-
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);

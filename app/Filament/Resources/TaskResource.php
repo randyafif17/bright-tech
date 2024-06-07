@@ -49,7 +49,7 @@ class TaskResource extends Resource
                     Forms\Components\DateTimePicker::make('visit_at')
                         ->label('Tanggal Masuk'),
                     Forms\Components\DateTimePicker::make('post_at')
-                        ->label('Tanggal Posting'),
+                        ->label('Tanggal Keluar'),
                     Forms\Components\RichEditor::make('description')
                         ->label('Laporan'),
                     Forms\Components\Select::make('status')
