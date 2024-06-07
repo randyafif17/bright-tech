@@ -22,6 +22,9 @@
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#data">Data</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        @auth
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a></li>
+                        @endauth
                     </ul>
                 </div>
             </div>
